@@ -1,0 +1,41 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+
+# Hardhat
+artifacts/
+cache/
+coverage/
+
+# TypeScript / Typechain
+typechain-types/
+types/
+
+# Build output
+dist/
+build/
+bundle/
+
+# Logs
+logs/
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+blockchain_protocol/deployment/addresses.json
+data/user_wallets.json

@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+
+  blockchain-node:
+    image: trufflesuite/ganache
+    container_name: local_ganache
+    ports:
+      - "8545:8545"
+    command:
+      - --deterministic
+      - --accounts 10
+      - --defaultBalanceEther 10000
+
+  app:
+    build: .
+    container_name: ai_blockchain_trading_app
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    depends_on:
+      - blockchain-node
+    environment:
+      - WEB3_PROVIDER_URI=http://blockchain-node:8545
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0
